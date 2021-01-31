@@ -1,0 +1,30 @@
+body{
+    margin: 0px;
+}
+
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: #eee;
+}
+
+
+.main{
+    margin-top: 50px;
+    width: 700px;
+    height: 900px;
+    border: 5px solid black;
+}
+
+
+#page-heading{
+    text-align: center;
+    margin-top: 25px;
+    color: rgb(71, 70, 70);
+}
+
+.description{
+    
+}
