@@ -26,7 +26,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.urlencoded())
 
 //set path to assets folder
-app.use(express.static('assets'));
+app.use(express.static('static'));
 
 
 
