@@ -28,11 +28,11 @@
                                     <label for="category">Category</label>
                                     <br>
                                     <select name="Category" id="category">
-                                      <option value="#">Personal</option>
-                                      <option value="#">Work</option>
-                                      <option value="#">School</option>
-                                      <option value="#">Cleaning</option>
-                                      <option value="#">Other</option>
+                                      <option value="personal">Personal</option>
+                                      <option value="work">Work</option>
+                                      <option value="school">School</option>
+                                      <option value="cleaning">Cleaning</option>
+                                      <option value="other">Other</option>
                                     </select>
                                 </div>
                                 <div class="col-sm">
@@ -44,21 +44,26 @@
 
                             <!-- Buttons -->
                             <div class="button-row d-flex justify-content-center">
-                                <button type="button" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;&nbsp;Add Task&nbsp;&nbsp;</button>
-                                <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i>&nbsp;&nbsp;Delete Task&nbsp;&nbsp;</button>
+                                <button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i>&nbsp;&nbsp;Add Task&nbsp;&nbsp;</button>
+                                <button type="button" class="btn btn-danger">
+                                    <a class="text-danger" href="#">
+                                        <i class="far fa-trash-alt"></i>&nbsp;&nbsp;Delete Task&nbsp;&nbsp;
+                                    </a>                                    
+                                </button>
                             </div>
 
 
                             <!-- Tasks Row -->
                             <div class="task-row">
                                 <ul>
+                                    <% for (let i of todo) { %>
                                         <li>
                                                 <div class="container">
                                                     <div class="row">
                                                         <div class="col-sm">
                                                             <input type="checkbox" id="tsk-1" name="tsk-1" value="">
                                                             <div class="row tsk-row">                                                                
-                                                                <label for="tsk-1">Task Description</label>
+                                                                <label for="tsk-1"><%= i.description %></label>
                                                             </div>
                                                             <div class="row tsk-row">
                                                                 <i class="far fa-calendar-alt" style=" color: rgb(131, 131, 131);"></i>
@@ -66,36 +71,15 @@
                                                             </div>                                                    
                                                         </div>
                                                         <div class="col-sm">
-                                                            <span class="badge badge-primary">Primary</span>
+                                                            <span class="badge badge-primary"><%= i.category %></span>
                                                         </div>
                                                     </div>                                          
                                                 </div>
                                         </li>
-                                        <li>
-                                            <div class="container">
-                                                <div class="row">
-                                                    <div class="col-sm">
-                                                        <input type="checkbox" id="tsk-1" name="tsk-1" value="">
-                                                        <div class="row tsk-row">                                                        
-                                                            <label for="tsk-1">Task Description</label>
-                                                        </div>
-                                                        <div class="row tsk-row">
-                                                            <i class="far fa-calendar-alt" style=" color: rgb(131, 131, 131);"></i>
-                                                            <p style="display: inline-block; margin-left: 16px; color: rgb(131, 131, 131);">Jan 31,2021</p>
-                                                        </div>                                                    
-                                                    </div>
-                                                    <div class="col-sm">
-                                                        <span class="badge badge-primary">Primary</span>
-                                                    </div>
-                                                </div>                                          
-                                            </div>
-                                        </li>
+                                    <% } %>
                                 </ul>
                             </div>
-
-
-
-                    </form>
+                        </form>
                 </div>
             </div>
     </body>

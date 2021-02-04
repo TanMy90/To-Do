@@ -7,11 +7,12 @@ const path = require('path');
 //define port number
 const port = 8000;
 
-// //require db config
-// const db = require('./config/mongoose');
+//require db config
+const db = require('./config/mongoose');
+const todo_model = require('./models/todo');
 
-// //require contact db
-// const Contact = require('./models/contact');
+//require contact db
+const Todo = require('./models/todo');
 
 //call express
 const app = express();
@@ -35,12 +36,53 @@ app.use(express.static('static'));
 //fetching data and displaying on the page
 app.get('/', function(req,res){
 
-           
-        return res.render('index');
-
+    Todo.find({}, function(err, tasks){
+        if(err){
+            console.log('Error in fetching contacts from db');
+            return;
+        }    
+    
+        return res.render('index',{
+             todo: tasks
+            // category: req.body.Category,
+            // dueDate: req.body.dueDate
+        });
+    });
        
 
 });
+
+
+//create new contact CRUD => C
+app.post('/create-task', function(req,res){
+    // return res.redirect('/prac');
+    // console.log(req.body);
+    // console.log(req.body.name);
+    // console.log(req.body.phone);
+    // contactsList.push({
+    //         name:req.body.name,
+    //         phone:req.body.phone
+    //     });
+    // return res.redirect('/');
+    // contactsList.push(req.body);
+
+    todo_model.create({
+        description: req.body.description,
+        category: req.body.Category,
+        dueDate: req.body.dueDate
+    }, function(err, newTask){
+        if(err){
+            console.log('error in creating a contact.');
+            return;
+        }
+
+        console.log('***********', newTask);
+        return res.redirect('back');
+    });
+
+    
+});
+
 
 //listening on port
 app.listen(port, function(err){
