@@ -10,21 +10,36 @@ input {
     background-color: #eee;
 }
 
+a:link {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+  }
 
+  a:hover {
+    color: rgb(255, 255, 255);
+  }
+  
+  /* selected link */
+  a:active {
+    color: rgb(255, 255, 255);
+  }
+  
 
 textarea {
     width: 100%;
-    height: 75px;
+    height: 60px;
     padding: 12px 20px;
     border: 0;
     border-radius: 4px;
     font-size: 16px;
     resize: none;
-    color: rgb(175, 175, 175);
+    color: rgb(0, 0, 0);
   }
 
   select{
-      width: 100%; border-top-style: hidden;
+      width: 100%;
+      height: 40px; 
+      border-top-style: hidden;
       border-right-style: hidden;
       border-left-style: hidden;
       border-bottom-style: hidden;
@@ -60,7 +75,9 @@ textarea {
   }
 
   #due-date{
-      width: 100%; border-top-style: hidden;
+      width: 100%;
+      height: 40px;
+      border-top-style: hidden;
       border-right-style: hidden;
       border-left-style: hidden;
       border-bottom-style: hidden;
