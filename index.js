@@ -84,6 +84,27 @@ app.post('/create-task', function(req,res){
 });
 
 
+
+//Delete existing contact CRUD => D
+app.get('/delete-todo', function(req,res){
+
+    //get the id from query in the url
+    let id = req.query.id;
+
+    //find the contact in db using id and delete it
+    Todo.findByIdAndDelete(id, function(err){
+        if(err){
+            console.log('error in deleting the object');
+            return;
+        }
+
+        return res.redirect('back');
+    });
+
+    
+})
+
+
 //listening on port
 app.listen(port, function(err){
     if(err){ console.log('Error running the server', err); }

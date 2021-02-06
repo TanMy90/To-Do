@@ -10,6 +10,11 @@ input {
     background-color: #eee;
 }
 
+input[type=checkbox]:checked + .strikethrough{
+    text-decoration: line-through;
+    color: tomato;
+}
+
 a:link {
     text-decoration: none;
     color: rgb(255, 255, 255);
