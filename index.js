@@ -86,13 +86,14 @@ app.post('/create-task', function(req,res){
 
 
 //Delete existing contact CRUD => D
-app.get('/delete-todo', function(req,res){
+app.post('/delete-todo/:id', function(req,res){
 
     //get the id from query in the url
     // let id = req.query.id;
 
     //find the contact in db using id and delete it
-    Todo.deleteMany({_id:{$in:req.body.id}}, function(err){
+    console.log(req.body);
+    Todo.findByIdAndDelete({_id:{$in:req.body.id}}, function(err){
         if(err){
             console.log('error in deleting the object');
             return;
